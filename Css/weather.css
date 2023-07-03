@@ -22,7 +22,7 @@ header{
 }
 
 header::before {
-  background: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/1-lightning-bolt-natureco-picture.jpg') no-repeat center center/cover;
+  background: url('../IMG/background.jpg') no-repeat center center/cover;
   background-size: cover;
     background-repeat: no-repeat;
     background-position: center center; 
