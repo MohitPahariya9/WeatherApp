@@ -1,0 +1,196 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
+    <title>Weather App</title>
+    
+    <link href="/Css/weather.css" rel="stylesheet">
+    <link rel="stylesheet" media="screen and max-width: 1270px" href="/Css/response.css">
+    
+  </head>
+  
+  
+  <body>
+    
+    <div class="container py-3">
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+            <img src="/IMG/weathericon.png" alt="Logo" width="45" height="35", title = "Mausam" > 
+            <span class="fs-4">Mausam</span>
+          </a>
+          
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Home</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">About the app!</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">How to use it?</a>
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">About Us.</a></li>
+            <li><a class="dropdown-item" href="#">Need Help?</a></li>
+          </ul>
+        </li>
+        <form class="d-flex" role="search">
+          <input id="city" class="form-control me-2" type="search" placeholder="City Name" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+        </form>
+      </nav>
+    </div>
+    
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Weather For <span style="text-transform: uppercase;" id="cityName"></span></h1>
+      <p class="fs-5 text-body-secondary">Get to Know about the weather of the Different cities</p>
+    </div>
+  </header>
+  
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Temperature</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title" ><span id="temp"></span><small class="text-body-secondary fw-light">&#8451</small>&#x26C5</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Min Temperature is <span id="min_temp"></span></li>
+              <li>MAx Temperature is <span id="max_temp"></span></li>
+            </ul>
+            <!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Humidity</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><span id="humidity"></span><small class="text-body-secondary fw-light">%</small>&#x2601</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Cloud pct is <span id="cloud_pct"></span></li>
+              <li>Feels like <span id="feels_like"></span></li>
+            </ul>
+            <!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary">Get started</button>  -->
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Wind Speed</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><span id="wind_speed"></span><small class="text-body-secondary fw-light">km/hr</small>&#x1F32B</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              
+              <li>Sunrise at <span id="sunrise"></span></li>
+              <li>Sunset at <span id="sunset"></span></li>
+            </ul>
+            <!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary">Contact us</button>  -->
+          </div>
+        </div>
+      </div>
+    </div> 
+    
+    <h2 class="display-6 text-center mb-4">Other Cities</h2>
+
+    
+    <!-- <div>
+      <h2>Weather in Boston:</h2>
+      <p>Temperature: <span id="boston-temp"></span></p>
+      <p>Cloud Percentage: <span id="boston-cloud"></span></p>
+    </div> -->
+    
+    <div class="table-responsive">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th style="width: 34%;"></th>
+            <th style="width: 22%;">Temperature</th>
+            <th style="width: 22%;">Cloud pct</th>
+            <th style="width: 22%;">Humidity</th>
+            <th style="width: 22%;">Wind speed</th>
+            <th style="width: 22%;">Sunrise</th>
+            <th style="width: 22%;">Sunset</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">Lucknow</th>
+            <td><span id="lucknow-temp"></span></td>
+            <td><span id="lucknow-cloud"></span></td>
+            <td><span id="lucknow-humidity"></span></td>
+            <td><span id="lucknow-wind_speed"></span></td>
+            <td><span id="lucknow-sunrise"></span></td>
+            <td><span id="lucknow-sunset"></span></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">London</th>
+            <td><span id="london-temp"></span></td>
+            <td><span id="london-cloud"></span></td>
+            <td><span id="london-humidity"></span></td>
+            <td><span id="london-wind_speed"></span></td>
+            <td><span id="london-sunrise"></span></td>
+            <td><span id="london-sunset"></span></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Hongkong</th>
+            <td><span id="hongkong-temp"></span></td>
+            <td><span id="hongkong-cloud"></span></td>
+            <td><span id="hongkong-humidity"></span></td>
+            <td><span id="hongkong-wind_speed"></span></td>
+            <td><span id="hongkong-sunrise"></span></td>
+            <td><span id="hongkong-sunset"></span></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Boston</th>
+            <td><span id="boston-temp"></span></td>
+            <td><span id="boston-cloud"></span></td>
+            <td><span id="boston-humidity"></span></td>
+            <td><span id="boston-wind_speed"></span></td>
+            <td><span id="boston-sunrise"></span></td>
+            <td><span id="boston-sunset"></span></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Chandigarh</th>
+            <td><span id="chandigarh-temp"></span></td>
+            <td><span id="chandigarh-cloud"></span></td>
+            <td><span id="chandigarh-humidity"></span></td>
+            <td><span id="chandigarh-wind_speed"></span></td>
+            <td><span id="chandigarh-sunrise"></span></td>
+            <td><span id="chandigarh-sunset"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <small class="d-block mb-3 text-body-secondary">&#8482; 2017–2023</small>
+      </div>
+      <div class="center">
+        Copyright &copy; www.MyWeather.com | All right Reserved.
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+
+<script src="/weather.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
